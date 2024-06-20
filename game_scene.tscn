@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu220yef857ql"]
+
+[ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="1_q6fmh"]
+[ext_resource type="Script" path="res://Player.gd" id="2_hno6q"]
+[ext_resource type="Texture2D" uid="uid://bkhnr8lrdow5w" path="res://sprite/Captura de tela 2024-06-20 171929.png" id="3_pdags"]
+[ext_resource type="Script" path="res://SuperMiniGun.gd" id="5_bduk5"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(564, 318)
+texture = ExtResource("1_q6fmh")
+region_enabled = true
+region_rect = Rect2(32, 32, 48, 48)
+script = ExtResource("2_hno6q")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="SuperMiniGun" type="Sprite2D" parent="Player"]
+z_index = 2
+position = Vector2(25, 4)
+scale = Vector2(0.426471, 0.426471)
+texture = ExtResource("3_pdags")
+script = ExtResource("5_bduk5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(699, 290)
+texture = ExtResource("1_q6fmh")

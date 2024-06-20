@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bprsg1v6de3c3"]
+
+[ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="1_nre17"]
+[ext_resource type="Script" path="res://Bullet.gd" id="2_gyy2y"]
+
+[node name="Bullet" type="Sprite2D"]
+position = Vector2(630, 377)
+texture = ExtResource("1_nre17")
+region_enabled = true
+region_rect = Rect2(4, 4, 8, 8)
+script = ExtResource("2_gyy2y")
