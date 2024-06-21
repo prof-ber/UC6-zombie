@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu220yef857ql"]
+[gd_scene load_steps=11 format=3 uid="uid://bu220yef857ql"]
 
 [ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="1_q6fmh"]
 [ext_resource type="Script" path="res://Player.gd" id="2_hno6q"]
 [ext_resource type="Texture2D" uid="uid://bkhnr8lrdow5w" path="res://sprite/Captura de tela 2024-06-20 171929.png" id="3_pdags"]
 [ext_resource type="Texture2D" uid="uid://c0g8rfqsjcuog" path="res://tiles/tilesheet_complete_2X.png" id="5_83e37"]
 [ext_resource type="Script" path="res://SuperMiniGun.gd" id="5_bduk5"]
+[ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="6_x63du"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1e6pf"]
 texture = ExtResource("5_83e37")
@@ -22506,3 +22507,5 @@ texture = ExtResource("1_q6fmh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_bgu1g")
+
+[node name="Zombie" parent="." instance=ExtResource("6_x63du")]
