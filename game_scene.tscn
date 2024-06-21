@@ -3,7 +3,13 @@
 [ext_resource type="TileSet" uid="uid://cbroxed3k5qdm" path="res://tiles/tileset.tres" id="1_6sntv"]
 [ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="1_q6fmh"]
 [ext_resource type="Script" path="res://Player.gd" id="2_hno6q"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bkhnr8lrdow5w" path="res://sprite/Captura de tela 2024-06-20 171929.png" id="3_pdags"]
+=======
+[ext_resource type="Texture2D" uid="uid://c0g8rfqsjcuog" path="res://tiles/tilesheet_complete_2X.png" id="5_83e37"]
+<<<<<<< HEAD
+=======
+>>>>>>> db71582e4a6c41c62ef8327aaef49b9d7e0459d1
 [ext_resource type="Script" path="res://SuperMiniGun.gd" id="5_bduk5"]
 [ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="6_hwqv3"]
 
@@ -45,12 +51,6 @@ region_enabled = true
 region_rect = Rect2(32, 32, 48, 48)
 
 [node name="Camera2D" type="Camera2D" parent="Player/PlayerSprite"]
-
-[node name="SuperMiniGun" type="Sprite2D" parent="Player"]
-z_index = 2
-scale = Vector2(0.426471, 0.426471)
-texture = ExtResource("3_pdags")
-script = ExtResource("5_bduk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_1m4cq")
