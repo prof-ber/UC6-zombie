@@ -63,6 +63,7 @@ texture = ExtResource("1_q6fmh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_bgu1g")
 
+<<<<<<< HEAD
 [node name="TileMap4" type="TileMap" parent="."]
 tile_set = ExtResource("1_6sntv")
 format = 2

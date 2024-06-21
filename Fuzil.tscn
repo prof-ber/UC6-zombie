@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://djotalutxrsap"]
+
+[ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_edcic"]
+[ext_resource type="Texture2D" uid="uid://jm7hirqsjtrr" path="res://sprite/Captura de tela 2024-06-21 144205.png" id="2_28ppd"]
+[ext_resource type="Script" path="res://SMG.gd" id="3_ls782"]
+
+[node name="Fuzil" instance=ExtResource("1_edcic")]
+texture = ExtResource("2_28ppd")
+offset = Vector2(0, 10)
+script = ExtResource("3_ls782")
+imprecisao = 5
+
+[node name="Ready" parent="." index="0"]
+wait_time = 0.15
