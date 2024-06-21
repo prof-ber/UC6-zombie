@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ohmbv2jd7v6i"]
+
+[ext_resource type="Script" path="res://Zombie.gd" id="1_woxbj"]
+[ext_resource type="Texture2D" uid="uid://c4rw151oixhkh" path="res://sprite/123.png" id="2_05kix"]
+[ext_resource type="Texture2D" uid="uid://ryhdiv60mfyd" path="res://sprite/zumbi-placeholder.png" id="2_076mf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6il2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_05kix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_076mf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
+radius = 16.0
+height = 40.0
+
+[node name="Zombie" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_woxbj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.285714, 0.25)
+sprite_frames = SubResource("SpriteFrames_y6il2")
+autoplay = "default"
+frame_progress = 0.434779
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_go3xp")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
