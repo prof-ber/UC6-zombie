@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://da3o120jlieqs"]
+
+[ext_resource type="Texture2D" uid="uid://bkhnr8lrdow5w" path="res://sprite/Captura de tela 2024-06-20 171929.png" id="1_oj7ek"]
+[ext_resource type="Script" path="res://Gun.gd" id="2_824qk"]
+
+[node name="Gun" type="Sprite2D"]
+z_index = 2
+scale = Vector2(0.426471, 0.426471)
+texture = ExtResource("1_oj7ek")
+script = ExtResource("2_824qk")
+
+[node name="Ready" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Ready" to="." method="_on_ready_timeout"]

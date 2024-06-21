@@ -10,3 +10,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	self.global_position += speed * direction
+
+func _on_lifetime_timeout():
+	self.queue_free()

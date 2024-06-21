@@ -9,3 +9,9 @@ texture = ExtResource("1_nre17")
 region_enabled = true
 region_rect = Rect2(4, 4, 8, 8)
 script = ExtResource("2_gyy2y")
+
+[node name="Lifetime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
