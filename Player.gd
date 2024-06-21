@@ -1,7 +1,7 @@
-extends Sprite2D
+extends CharacterBody2D
 
 var motion = Vector2()
-var speed = 4
+var speed = 256
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	motion = Vector2(0,0)
-	speed = 4
+	speed = 256
 	self.get_child(1).look_at(get_global_mouse_position())
 	if (Input.is_action_pressed("Up")):
 		motion.y = -1
@@ -24,4 +24,5 @@ func _process(delta):
 		speed *= 2
 	if (Input.is_action_pressed("Shoot")):
 		self.get_child(1).fire()
-	self.global_position += motion * speed
+	self.velocity = motion * speed
+	move_and_slide()
