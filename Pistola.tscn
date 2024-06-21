@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b33hpkervb8rl"]
+
+[ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_sipur"]
+[ext_resource type="Texture2D" uid="uid://cp4xrumyvbvps" path="res://sprite/Captura de tela 2024-06-21 143025.png" id="2_dbjcr"]
+[ext_resource type="Script" path="res://SMG.gd" id="3_cwetb"]
+
+[node name="Pistola" instance=ExtResource("1_sipur")]
+texture = ExtResource("2_dbjcr")
+offset = Vector2(0, 10)
+script = ExtResource("3_cwetb")
+imprecisao = 5
+
+[node name="Ready" parent="." index="0"]
+wait_time = 0.463
