@@ -41,4 +41,4 @@ func _on_timer_timeout():
 	mordida_ready = true
 	
 func tomar_dano():
-	
+	pass
