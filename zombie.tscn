@@ -1,17 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://ohmbv2jd7v6i"]
+[gd_scene load_steps=9 format=3 uid="uid://bgv2r6rfd2312"]
 
 [ext_resource type="Script" path="res://Zombie.gd" id="1_woxbj"]
-[ext_resource type="Texture2D" uid="uid://c4rw151oixhkh" path="res://sprite/123.png" id="2_05kix"]
-[ext_resource type="Texture2D" uid="uid://ryhdiv60mfyd" path="res://sprite/zumbi-placeholder.png" id="2_076mf"]
+[ext_resource type="Texture2D" uid="uid://dxldt3mda205c" path="res://sprite/zombie_tilesheet.png" id="2_w7as0"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_y6il2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1oql"]
+atlas = ExtResource("2_w7as0")
+region = Rect2(320, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib8cj"]
+atlas = ExtResource("2_w7as0")
+region = Rect2(400, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbfle"]
+atlas = ExtResource("2_w7as0")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3apqi"]
+atlas = ExtResource("2_w7as0")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ox6tx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_05kix")
+"texture": SubResource("AtlasTexture_l1oql")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_076mf")
+"texture": SubResource("AtlasTexture_ib8cj")
+}],
+"loop": false,
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbfle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3apqi")
 }],
 "loop": true,
 "name": &"default",
@@ -26,15 +52,12 @@ height = 40.0
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
 script = ExtResource("1_woxbj")
-vida = null
-forca = null
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
-scale = Vector2(0.285714, 0.25)
-sprite_frames = SubResource("SpriteFrames_y6il2")
+position = Vector2(-2.66667, -4)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ox6tx")
 autoplay = "default"
-frame_progress = 0.434779
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,5 +67,7 @@ shape = SubResource("CapsuleShape2D_go3xp")
 process_callback = 0
 wait_time = 1.5
 one_shot = true
+
+[node name="SomMordida" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2o6p3vlibqre"]
+[gd_scene load_steps=6 format=3 uid="uid://c2o6p3vlibqre"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rgjoe"]
 [ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="2_uo8go"]
-[ext_resource type="PackedScene" uid="uid://djotalutxrsap" path="res://Fuzil.tscn" id="3_1v82x"]
+[ext_resource type="PackedScene" uid="uid://x5cyrpyvmnu4" path="res://SMG.tscn" id="3_4or6x"]
+[ext_resource type="Script" path="res://SuperMiniGun.gd" id="4_lvqig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbugi"]
 
@@ -17,7 +18,8 @@ texture = ExtResource("2_uo8go")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Fuzil" parent="." instance=ExtResource("3_1v82x")]
+[node name="SMG" parent="." instance=ExtResource("3_4or6x")]
+script = ExtResource("4_lvqig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dbugi")

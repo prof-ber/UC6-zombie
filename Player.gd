@@ -36,5 +36,4 @@ func tomar_dano(quantidade):
 		self.morrer()
 
 func morrer():
-	print("morri!")
 	self.morto = true
