@@ -9,7 +9,7 @@ var mordida_ready = true
 var morto = false
 
 func _ready():
-	pass
+	$Sprite2D.play("default")
 
 func _process(delta):
 	if !morto:
@@ -32,7 +32,9 @@ func _process(delta):
 
 func bite(target):
 	##Executar uma animação de mordida
+	$Sprite2D.play("bite")
 	##Tocar um som
+	$SomMordida.play()
 	##Fazer o jogador tomar dano
 	target.tomar_dano(self.forca)
 	##Fazer a mordida entrar em cooldown
