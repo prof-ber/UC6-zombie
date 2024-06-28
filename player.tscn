@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2o6p3vlibqre"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_rgjoe"]
+[ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="2_uo8go"]
+[ext_resource type="PackedScene" uid="uid://djotalutxrsap" path="res://Fuzil.tscn" id="3_1v82x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbugi"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(243, 288)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_rgjoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uo8go")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Fuzil" parent="." instance=ExtResource("3_1v82x")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dbugi")

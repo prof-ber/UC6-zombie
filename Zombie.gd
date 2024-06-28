@@ -22,10 +22,10 @@ func _process(delta):
 	##Determinar para qual direção esse jogador está e atualizar a variável motion
 	self.motion = self.global_position.direction_to(target_position)
 	##Realizar o movimento
-	self.velocity = motion * speed
-	move_and_slide()
-	##Se tiver um jogador muito perto, morder
-	if mordida_ready and target and self.global_position.distance_to(target.global_position) < 55.0:
+	if !self.global_position.distance_to(target.global_position) < 55.0:
+		self.velocity = motion * speed
+		move_and_slide()
+	elif mordida_ready:
 		self.bite(target)
 
 func bite(target):
@@ -39,3 +39,6 @@ func bite(target):
 
 func _on_timer_timeout():
 	mordida_ready = true
+	
+func tomar_dano():
+	
