@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bwt3ac6b63j6v"]
+
+[resource]
+=======
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://iisn1lajtt8f"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8xws2"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectLowShelfFilter" id="AudioEffectLowShelfFilter_3vwru"]
+resource_name = "LowShelfFilter"
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_j0r41"]
+resource_name = "HighPassFilter"
+
+[resource]
+bus/0/volume_db = 6.02
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_8xws2")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectLowShelfFilter_3vwru")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectHighPassFilter_j0r41")
+bus/0/effect/2/enabled = true
+>>>>>>> db71582e4a6c41c62ef8327aaef49b9d7e0459d1

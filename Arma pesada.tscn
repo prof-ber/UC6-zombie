@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://wqrbmfqacyb8"]
+
+[ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_bf55h"]
+[ext_resource type="Script" path="res://SuperMiniGun.gd" id="2_bjs7a"]
+
+[node name="Arma pesada" instance=ExtResource("1_bf55h")]
+offset = Vector2(0, 10)
+script = ExtResource("2_bjs7a")
