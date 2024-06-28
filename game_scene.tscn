@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckccvfggo61kp"]
+[gd_scene load_steps=4 format=3 uid="uid://bu220yef857ql"]
 
 [ext_resource type="PackedScene" uid="uid://c2o6p3vlibqre" path="res://player.tscn" id="1_jtqty"]
+[ext_resource type="PackedScene" uid="uid://dll76yxn661kc" path="res://spawn_zombie.tscn" id="3_xgvbq"]
 [ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="4_rd5dw"]
 
 [node name="GameScene" type="Node2D"]
@@ -9,3 +10,12 @@
 
 [node name="Zombie" parent="." instance=ExtResource("4_rd5dw")]
 position = Vector2(897, 287)
+
+[node name="SpawnZombie" parent="." instance=ExtResource("3_xgvbq")]
+position = Vector2(559, 131)
+
+[node name="SpawnZombie2" parent="." instance=ExtResource("3_xgvbq")]
+position = Vector2(562, 515)
+
+[node name="SpawnZombie3" parent="." instance=ExtResource("3_xgvbq")]
+position = Vector2(-43, 275)

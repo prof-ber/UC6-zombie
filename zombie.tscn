@@ -26,8 +26,6 @@ height = 40.0
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
 script = ExtResource("1_woxbj")
-vida = null
-forca = null
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
