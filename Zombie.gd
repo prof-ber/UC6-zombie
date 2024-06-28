@@ -8,7 +8,7 @@ var speed = 256
 var mordida_ready = true
 
 func _ready():
-	pass
+	$Sprite2D.play("default")
 
 func _process(delta):
 	var target_position = Vector2(INF,INF)
@@ -30,7 +30,9 @@ func _process(delta):
 
 func bite(target):
 	##Executar uma animação de mordida
+	$Sprite2D.play("bite")
 	##Tocar um som
+	$SomMordida.play()
 	##Fazer o jogador tomar dano
 	target.tomar_dano(self.forca)
 	##Fazer a mordida entrar em cooldown
@@ -40,5 +42,5 @@ func bite(target):
 func _on_timer_timeout():
 	mordida_ready = true
 	
-func tomar_dano():
-	
+func tomar_dano(dano):
+	pass

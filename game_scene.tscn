@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckccvfggo61kp"]
+[gd_scene load_steps=3 format=3 uid="uid://dltdoy2jwxqvb"]
 
-[ext_resource type="PackedScene" uid="uid://c2o6p3vlibqre" path="res://player.tscn" id="1_jtqty"]
-[ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="4_rd5dw"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="1_jtqty"]
+[ext_resource type="PackedScene" uid="uid://bgv2r6rfd2312" path="res://zombie.tscn" id="4_rd5dw"]
 
 [node name="GameScene" type="Node2D"]
 
@@ -9,3 +9,5 @@
 
 [node name="Zombie" parent="." instance=ExtResource("4_rd5dw")]
 position = Vector2(897, 287)
+vida = 20
+forca = 10
