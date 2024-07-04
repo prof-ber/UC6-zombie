@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://x5cyrpyvmnu4"]
+[gd_scene load_steps=5 format=3 uid="uid://x5cyrpyvmnu4"]
 
 [ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_adqr6"]
 [ext_resource type="Texture2D" uid="uid://c6tqow16i7bac" path="res://sprite/Captura de tela 2024-06-21 144233.png" id="2_mif2d"]
 [ext_resource type="Script" path="res://SMG.gd" id="2_wp1l8"]
+[ext_resource type="AudioStream" uid="uid://cwcyfbep4gx0a" path="res://sound/files/212608__pgi__machine-gun-002-loop.wav" id="4_2ijdr"]
 
 [node name="SMG" instance=ExtResource("1_adqr6")]
 texture = ExtResource("2_mif2d")
 offset = Vector2(0, 10)
 script = ExtResource("2_wp1l8")
 imprecisao = 15
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource("4_2ijdr")
+volume_db = 15.928
+pitch_scale = 2.84

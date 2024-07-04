@@ -45,6 +45,7 @@ func _on_timer_timeout():
 	mordida_ready = true
 	
 func tomar_dano(quantidade):
+	$SomDano.play()
 	self.vida -= quantidade
 	if self.vida < 1:
 		self.morrer()
@@ -52,5 +53,9 @@ func tomar_dano(quantidade):
 func morrer():
 	##Flag morto para verdadeiro
 	self.morto = true
-	##Tocar um sonzinho
+	$SomMorte.play()
 	##Explodir o zumbi
+
+
+func _on_sprite_2d_animation_finished():
+	$Sprite2D.play("default")

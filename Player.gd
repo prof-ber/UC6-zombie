@@ -31,9 +31,11 @@ func _process(delta):
 		move_and_slide()
 
 func tomar_dano(quantidade):
+	$SomDano.play()
 	self.vida -= quantidade
 	if self.vida < 1:
 		self.morrer()
 
 func morrer():
 	self.morto = true
+	$SomMorte.play()
