@@ -19,5 +19,7 @@ func fire():
 	new_bullet.global_position = self.global_position
 	##Configurar a direção da bala
 	new_bullet.rotation_degrees = self.rotation_degrees
+	##Tocar um som
+	$AudioStreamPlayer.play()
 	##Adicionar a bala ao jogo
 	get_tree().get_root().add_child(new_bullet)
