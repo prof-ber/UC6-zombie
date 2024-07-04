@@ -7,7 +7,7 @@ var morto = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$UI/LifeBar.value = self.vida
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,6 +33,7 @@ func _process(delta):
 func tomar_dano(quantidade):
 	$SomDano.play()
 	self.vida -= quantidade
+	$UI/LifeBar.value = self.vida
 	if self.vida < 1:
 		self.morrer()
 
