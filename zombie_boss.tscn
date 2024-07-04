@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://sa2b4ctdkf8e"]
+
+[ext_resource type="Script" path="res://Zombie.gd" id="1_geltc"]
+[ext_resource type="Texture2D" uid="uid://dxldt3mda205c" path="res://sprite/zombie_tilesheet.png" id="2_hntxv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1oql"]
+atlas = ExtResource("2_hntxv")
+region = Rect2(320, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib8cj"]
+atlas = ExtResource("2_hntxv")
+region = Rect2(400, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbfle"]
+atlas = ExtResource("2_hntxv")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3apqi"]
+atlas = ExtResource("2_hntxv")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ox6tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1oql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib8cj")
+}],
+"loop": false,
+"name": &"bite",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbfle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3apqi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
+radius = 49.3333
+height = 165.333
+
+[node name="ZombieBoss" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 7
+script = ExtResource("1_geltc")
+vida = 10000
+forca = 50
+alcance_ataque = 110.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.313726, 0.168627, 1)
+position = Vector2(-2.66667, -19.3333)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ox6tx")
+animation = &"bite"
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_go3xp")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="SomMordida" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

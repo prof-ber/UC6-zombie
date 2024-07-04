@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://w8xi8m1y7att"]
+
+[ext_resource type="Script" path="res://SpawnBoss.gd" id="1_x7ix1"]
+
+[node name="SpawnBoss" type="Node2D"]
+position = Vector2(-2, 942)
+script = ExtResource("1_x7ix1")
+ActiveRound = 5
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
