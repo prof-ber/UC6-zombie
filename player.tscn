@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2o6p3vlibqre"]
+[gd_scene load_steps=9 format=3 uid="uid://c2o6p3vlibqre"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rgjoe"]
 [ext_resource type="Texture2D" uid="uid://dkwv8fws8hxx3" path="res://icon.svg" id="2_uo8go"]
-[ext_resource type="PackedScene" uid="uid://x5cyrpyvmnu4" path="res://SMG.tscn" id="3_4or6x"]
-[ext_resource type="Script" path="res://SuperMiniGun.gd" id="4_lvqig"]
+[ext_resource type="PackedScene" uid="uid://djotalutxrsap" path="res://Fuzil.tscn" id="3_ta56v"]
+[ext_resource type="AudioStream" uid="uid://tns28wgtxtju" path="res://sound/files/som mordida.wav" id="4_unkii"]
+[ext_resource type="AudioStream" uid="uid://b7x7evh5ebse2" path="res://sound/files/som-morte.wav" id="5_2bbiy"]
+[ext_resource type="Texture2D" uid="uid://bfml5vqrh4lcu" path="res://sprite/barra-de-vida-2.png" id="6_hp081"]
+[ext_resource type="Texture2D" uid="uid://q5d1c7vce7ao" path="res://sprite/barra-de-vida-3.png" id="7_1sml5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbugi"]
 
@@ -18,10 +21,34 @@ texture = ExtResource("2_uo8go")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="SMG" parent="." instance=ExtResource("3_4or6x")]
-script = ExtResource("4_lvqig")
+[node name="Fuzil" parent="." instance=ExtResource("3_ta56v")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dbugi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SomDano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_unkii")
+pitch_scale = 1.68
+
+[node name="SomMorte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2bbiy")
+pitch_scale = 1.68
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -577.0
+offset_top = -325.0
+offset_right = 574.0
+offset_bottom = 323.0
+
+[node name="LifeBar" type="TextureProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 282.0
+offset_bottom = 55.0
+texture_under = ExtResource("6_hp081")
+texture_progress = ExtResource("7_1sml5")

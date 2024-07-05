@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var vida = 100
 @export var forca = 10
+@export var alcance_ataque = 55.0
 
 var motion = Vector2()
 var speed = 256
@@ -24,7 +25,7 @@ func _process(delta):
 		##Determinar para qual direção esse jogador está e atualizar a variável motion
 		self.motion = self.global_position.direction_to(target_position)
 		##Realizar o movimento
-		if target and !self.global_position.distance_to(target.global_position) < 55.0:
+		if target and !self.global_position.distance_to(target.global_position) < alcance_ataque:
 			self.velocity = motion * speed
 			move_and_slide()
 		elif target and mordida_ready:
@@ -45,6 +46,7 @@ func _on_timer_timeout():
 	mordida_ready = true
 	
 func tomar_dano(quantidade):
+	$SomDano.play()
 	self.vida -= quantidade
 	if self.vida < 1:
 		self.morrer()
@@ -52,5 +54,8 @@ func tomar_dano(quantidade):
 func morrer():
 	##Flag morto para verdadeiro
 	self.morto = true
-	##Tocar um sonzinho
+	$SomMorte.play()
 	##Explodir o zumbi
+
+func _on_sprite_2d_animation_finished():
+	$Sprite2D.play("default")

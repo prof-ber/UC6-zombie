@@ -19,6 +19,7 @@ func fire():
 		new_bullet.rotation_degrees = self.rotation_degrees
 		new_bullet.rotation_degrees = self.rotation_degrees + rng.randf_range(-imprecisao, imprecisao)
 		get_tree().get_root().add_child(new_bullet)
+		$AudioStreamPlayer.play()
 		pode_atirar = false
 		$Ready.start()
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djotalutxrsap"]
+[gd_scene load_steps=5 format=3 uid="uid://djotalutxrsap"]
 
 [ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_edcic"]
 [ext_resource type="Texture2D" uid="uid://jm7hirqsjtrr" path="res://sprite/Captura de tela 2024-06-21 144205.png" id="2_28ppd"]
 [ext_resource type="Script" path="res://SMG.gd" id="3_ls782"]
+[ext_resource type="AudioStream" uid="uid://cwcyfbep4gx0a" path="res://sound/files/212608__pgi__machine-gun-002-loop.wav" id="4_es04i"]
 
 [node name="Fuzil" instance=ExtResource("1_edcic")]
 texture = ExtResource("2_28ppd")
@@ -12,3 +13,7 @@ imprecisao = 5
 
 [node name="Ready" parent="." index="0"]
 wait_time = 0.15
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource("4_es04i")
+pitch_scale = 1.25

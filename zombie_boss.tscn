@@ -1,25 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgv2r6rfd2312"]
+[gd_scene load_steps=9 format=3 uid="uid://sa2b4ctdkf8e"]
 
-[ext_resource type="Script" path="res://Zombie.gd" id="1_woxbj"]
-[ext_resource type="Texture2D" uid="uid://dxldt3mda205c" path="res://sprite/zombie_tilesheet.png" id="2_w7as0"]
-[ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="3_8hv1r"]
-[ext_resource type="AudioStream" uid="uid://l34hmhub1gdm" path="res://sound/audacity/sound.zombie/555420__tonsil5__zombie-hit-1.wav" id="3_j1uhc"]
-[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/files/555423__tonsil5__zombie-pain-2.wav" id="4_cev5g"]
+[ext_resource type="Script" path="res://Zombie.gd" id="1_geltc"]
+[ext_resource type="Texture2D" uid="uid://dxldt3mda205c" path="res://sprite/zombie_tilesheet.png" id="2_hntxv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1oql"]
-atlas = ExtResource("2_w7as0")
+atlas = ExtResource("2_hntxv")
 region = Rect2(320, 110, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib8cj"]
-atlas = ExtResource("2_w7as0")
+atlas = ExtResource("2_hntxv")
 region = Rect2(400, 110, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbfle"]
-atlas = ExtResource("2_w7as0")
+atlas = ExtResource("2_hntxv")
 region = Rect2(80, 110, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3apqi"]
-atlas = ExtResource("2_w7as0")
+atlas = ExtResource("2_hntxv")
 region = Rect2(0, 110, 80, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ox6tx"]
@@ -33,7 +30,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"bite",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -48,18 +45,23 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
-radius = 16.0
-height = 40.0
+radius = 49.3333
+height = 165.333
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="ZombieBoss" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
-script = ExtResource("1_woxbj")
+script = ExtResource("1_geltc")
+vida = 10000
+forca = 50
+alcance_ataque = 110.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.66667, -4)
-scale = Vector2(0.5, 0.5)
+modulate = Color(1, 0.313726, 0.168627, 1)
+position = Vector2(-2.66667, -19.3333)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ox6tx")
+animation = &"bite"
 autoplay = "default"
 flip_h = true
 
@@ -72,15 +74,6 @@ wait_time = 1.5
 one_shot = true
 
 [node name="SomMordida" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_j1uhc")
-
-[node name="SomDano" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8hv1r")
-volume_db = 3.923
-pitch_scale = 1.04
-
-[node name="SomMorte" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_cev5g")
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

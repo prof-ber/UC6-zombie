@@ -22,5 +22,6 @@ func fire():
 	new_bullet3.global_position = self.global_position
 	new_bullet3.rotation_degrees = self.rotation_degrees + rng.randf_range(-10.0, 10.0)
 	get_tree().get_root().add_child(new_bullet)
-	get_tree().get_root().add_child(new_bullet2)
-	get_tree().get_root().add_child(new_bullet3)
+	$AudioStreamPlayer2.play()
+	$AudioStreamPlayer3.play()
+	$AudioStreamPlayer3.play()
