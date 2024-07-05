@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="4_rd5dw"]
 [ext_resource type="PackedScene" path="res://spawn_zombie.tscn" id="6_8umcu"]
 [ext_resource type="PackedScene" uid="uid://w8xi8m1y7att" path="res://spawn_boss.tscn" id="8_8ba4s"]
-[ext_resource type="PackedScene" uid="uid://bgv2r6rfd2312" path="res://zombie.tscn" id="4_rd5dw"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_72iaw")
