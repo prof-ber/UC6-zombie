@@ -67,16 +67,25 @@ pitch_scale = 1.68
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -577.0
-offset_top = -325.0
-offset_right = 574.0
-offset_bottom = 323.0
+offset_left = -571.0
+offset_top = -320.0
+offset_right = 580.0
+offset_bottom = 328.0
 
 [node name="LifeBar" type="TextureProgressBar" parent="UI"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 20.0
-offset_right = 282.0
-offset_bottom = 55.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 281.0
+offset_bottom = 51.0
 texture_under = ExtResource("6_hp081")
 texture_progress = ExtResource("7_1sml5")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 281.0
+offset_bottom = 91.0
+texture_under = ExtResource("6_hp081")
+texture_progress = ExtResource("8_2hike")
