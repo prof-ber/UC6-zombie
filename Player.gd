@@ -46,12 +46,17 @@ func _process(delta):
 		move_and_slide()
 
 func tomar_dano(quantidade):
-	$SomDano.play()
-	self.vida -= quantidade
-	$UI/LifeBar.value = self.vida
-	if self.vida < 1:
-		self.morrer()
+	if not morto:
+		$SomDano.play()
+		self.vida -= quantidade
+		$UI/LifeBar.value = self.vida
+		if self.vida < 1:
+			self.morrer()
 
 func morrer():
 	self.morto = true
 	$SomMorte.play()
+	$Sprite2D.play("morrer")
+	$Sprite2D.scale = Vector2(0.75,0.75)
+	get_child(1).visible = false
+	$Mochila.visible = true

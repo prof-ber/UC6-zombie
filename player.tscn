@@ -1,15 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2o6p3vlibqre"]
+[gd_scene load_steps=16 format=3 uid="uid://c2o6p3vlibqre"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rgjoe"]
 [ext_resource type="Texture2D" uid="uid://xkajmb0glb2r" path="res://sprite/avatar1, walk 1.png" id="2_1jdif"]
 [ext_resource type="PackedScene" uid="uid://djotalutxrsap" path="res://Fuzil.tscn" id="3_ta56v"]
 [ext_resource type="Texture2D" uid="uid://bmnq5d3ixba03" path="res://sprite/avatar1, walk2.png" id="3_tlfgn"]
+[ext_resource type="Texture2D" uid="uid://dk0rqkj24amsl" path="res://sprite/zumbi1, morto1.png" id="4_eqsk6"]
 [ext_resource type="Texture2D" uid="uid://c8q2h2cly5ha1" path="res://sprite/avatar1, stop.png" id="4_ifbde"]
 [ext_resource type="AudioStream" uid="uid://tns28wgtxtju" path="res://sound/files/som mordida.wav" id="4_unkii"]
 [ext_resource type="AudioStream" uid="uid://b7x7evh5ebse2" path="res://sound/files/som-morte.wav" id="5_2bbiy"]
+[ext_resource type="Texture2D" uid="uid://bvirfeimdw3qw" path="res://sprite/zumbi1, morto2.png" id="5_wik8t"]
 [ext_resource type="Texture2D" uid="uid://bfml5vqrh4lcu" path="res://sprite/barra-de-vida-2.png" id="6_hp081"]
 [ext_resource type="Texture2D" uid="uid://q5d1c7vce7ao" path="res://sprite/barra-de-vida-3.png" id="7_1sml5"]
 [ext_resource type="Texture2D" uid="uid://bxrolrgxacpeg" path="res://sprite/barra-de-stamina.png" id="8_2hike"]
+[ext_resource type="Texture2D" uid="uid://cinbvt5gw7s0t" path="res://sprite/mochila.png" id="11_q3ys8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cuprc"]
 animations = [{
@@ -23,6 +26,17 @@ animations = [{
 "loop": true,
 "name": &"correndo",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eqsk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wik8t")
+}],
+"loop": false,
+"name": &"morrer",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -44,7 +58,7 @@ script = ExtResource("1_rgjoe")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cuprc")
-animation = &"correndo"
+animation = &"morrer"
 autoplay = "parado"
 
 [node name="Fuzil" parent="." instance=ExtResource("3_ta56v")]
@@ -87,3 +101,9 @@ offset_right = 281.0
 offset_bottom = 91.0
 texture_under = ExtResource("6_hp081")
 texture_progress = ExtResource("8_2hike")
+
+[node name="Mochila" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-9, 7)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("11_q3ys8")
