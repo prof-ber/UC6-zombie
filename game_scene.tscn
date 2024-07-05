@@ -5,10 +5,9 @@
 [ext_resource type="TileSet" uid="uid://cbroxed3k5qdm" path="res://tiles/tileset.tres" id="1_hdq4m"]
 [ext_resource type="PackedScene" uid="uid://c2o6p3vlibqre" path="res://player.tscn" id="1_jtqty"]
 [ext_resource type="PackedScene" uid="uid://bm5bn28nfv7ep" path="res://rounds.tscn" id="2_irjjy"]
-[ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="4_rd5dw"]
-[ext_resource type="PackedScene" path="res://spawn_zombie.tscn" id="6_8umcu"]
-[ext_resource type="PackedScene" uid="uid://w8xi8m1y7att" path="res://spawn_boss.tscn" id="8_8ba4s"]
 [ext_resource type="PackedScene" uid="uid://bgv2r6rfd2312" path="res://zombie.tscn" id="4_rd5dw"]
+[ext_resource type="PackedScene" uid="uid://dll76yxn661kc" path="res://spawn_zombie.tscn" id="6_8umcu"]
+[ext_resource type="PackedScene" uid="uid://w8xi8m1y7att" path="res://spawn_boss.tscn" id="8_8ba4s"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_72iaw")

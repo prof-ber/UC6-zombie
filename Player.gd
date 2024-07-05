@@ -28,6 +28,14 @@ func _process(delta):
 		if (Input.is_action_pressed("Shoot")):
 			self.get_child(1).fire()
 		self.velocity = motion * speed
+		if motion.x < 0:
+			$Sprite2D.flip_h = true
+		elif motion.x > 0:
+			$Sprite2D.flip_h = false
+		if velocity:
+			$Sprite2D.play("correndo")
+		else:
+			$Sprite2D.play("parado")
 		move_and_slide()
 
 func tomar_dano(quantidade):

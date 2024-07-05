@@ -11,6 +11,7 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_203ak")
 region_rect = Rect2(4, 4, 8, 8)
 script = ExtResource("2_gyy2y")
+dano = 5
 
 [node name="Lifetime" type="Timer" parent="."]
 one_shot = true

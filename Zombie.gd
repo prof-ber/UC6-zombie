@@ -10,7 +10,7 @@ var mordida_ready = true
 var morto = false
 
 func _ready():
-	$Sprite2D.play("default")
+	pass
 
 func _process(delta):
 	if !morto:
@@ -27,13 +27,19 @@ func _process(delta):
 		##Realizar o movimento
 		if target and !self.global_position.distance_to(target.global_position) < alcance_ataque:
 			self.velocity = motion * speed
+			if velocity:
+				$Sprite2D.play("andando")
+			if motion.x < 0:
+				$Sprite2D.flip_h = true
+			elif motion.x > 0:
+				$Sprite2D.flip_h = false
 			move_and_slide()
 		elif target and mordida_ready:
 			self.bite(target)
 
 func bite(target):
 	##Executar uma animação de mordida
-	$Sprite2D.play("bite")
+	$Sprite2D.play("atacando")
 	##Tocar um som
 	$SomMordida.play()
 	##Fazer o jogador tomar dano
@@ -46,16 +52,19 @@ func _on_timer_timeout():
 	mordida_ready = true
 	
 func tomar_dano(quantidade):
-	$SomDano.play()
-	self.vida -= quantidade
-	if self.vida < 1:
-		self.morrer()
+	if not morto:
+		self.vida -= quantidade
+		if self.vida < 1:
+			self.morrer()
+		else:
+			$SomDano.play()
 
 func morrer():
+	$Sprite2D.play("morrer")
 	##Flag morto para verdadeiro
 	self.morto = true
 	$SomMorte.play()
+	##Tirar a colisão
+	self.remove_child($CollisionShape2D)
+	$Sprite2D.z_index -= 1
 	##Explodir o zumbi
-
-func _on_sprite_2d_animation_finished():
-	$Sprite2D.play("default")
