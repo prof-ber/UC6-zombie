@@ -1,74 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgv2r6rfd2312"]
+[gd_scene load_steps=7 format=3 uid="uid://ohmbv2jd7v6i"]
 
 [ext_resource type="Script" path="res://Zombie.gd" id="1_woxbj"]
-[ext_resource type="Texture2D" uid="uid://bxt77d5y2ebrg" path="res://sprite/zumbi1, walk1.png" id="2_kbpqv"]
-[ext_resource type="Texture2D" uid="uid://cypkj36h6abvs" path="res://sprite/zumbi1, walk3.png" id="3_0ds57"]
-[ext_resource type="Texture2D" uid="uid://dxcby265a2k8q" path="res://sprite/zumbi1, walk2.png" id="4_irl7b"]
-[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/files/555423__tonsil5__zombie-pain-2.wav" id="4_umgge"]
-[ext_resource type="Texture2D" uid="uid://d0o5vryuchcmq" path="res://sprite/zumbi1, soco 1.png" id="5_1ojh6"]
-[ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="5_t04kr"]
-[ext_resource type="Texture2D" uid="uid://bm1yoxwkdi5db" path="res://sprite/zumbi1, soco2.png" id="6_fjnw1"]
-[ext_resource type="Texture2D" uid="uid://dk0rqkj24amsl" path="res://sprite/zumbi1, morto1.png" id="7_vnmsw"]
-[ext_resource type="Texture2D" uid="uid://bvirfeimdw3qw" path="res://sprite/zumbi1, morto2.png" id="8_0xaam"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ox6tx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kbpqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0ds57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_irl7b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0ds57")
-}],
-"loop": true,
-"name": &"andando",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_1ojh6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_fjnw1")
-}],
-"loop": false,
-"name": &"atacando",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_vnmsw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_0xaam")
-}],
-"loop": false,
-"name": &"morrer",
-"speed": 1.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dohldf58c5y4e" path="res://zombie.tres" id="2_qrwin"]
+[ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="3_8hv1r"]
+[ext_resource type="AudioStream" uid="uid://l34hmhub1gdm" path="res://sound/audacity/sound.zombie/555420__tonsil5__zombie-hit-1.wav" id="3_j1uhc"]
+[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/audacity/sound.zombie/555423__tonsil5__zombie-pain-2.wav" id="4_cev5g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
 radius = 16.0
 height = 40.0
 
 [node name="Zombie" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
 script = ExtResource("1_woxbj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
 position = Vector2(-2.66667, -4)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_ox6tx")
+sprite_frames = ExtResource("2_qrwin")
 animation = &"atacando"
-autoplay = "andando"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -80,13 +32,15 @@ wait_time = 1.5
 one_shot = true
 
 [node name="SomMordida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j1uhc")
 
 [node name="SomDano" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_t04kr")
+stream = ExtResource("3_8hv1r")
 volume_db = 3.923
 pitch_scale = 1.04
 
 [node name="SomMorte" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_umgge")
+stream = ExtResource("4_cev5g")
 
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
