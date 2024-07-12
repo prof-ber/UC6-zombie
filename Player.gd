@@ -5,6 +5,7 @@ extends CharacterBody2D
 var motion = Vector2()
 var speed = 256
 var morto = false
+var vitoria = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not morto:
+	if not morto and not vitoria:
 		motion = Vector2(0,0)
 		speed = 256
 		self.get_child(1).look_at(get_global_mouse_position())
@@ -60,3 +61,5 @@ func morrer():
 	$Sprite2D.scale = Vector2(0.75,0.75)
 	get_child(1).visible = false
 	$Mochila.visible = true
+	$GameOver.visible = true
+	$GameOver/Timer.start()

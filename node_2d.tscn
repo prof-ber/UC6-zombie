@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxkii30itcpd4"]
+
+[ext_resource type="Script" path="res://telainicial.gd" id="1_f2bja"]
+[ext_resource type="FontFile" uid="uid://caqi68vof71g4" path="res://font/BlackOpsOne-Regular.ttf" id="2_hy5n0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gp605"]
+font = ExtResource("2_hy5n0")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_okx2f"]
+font = ExtResource("2_hy5n0")
+font_size = 32
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_f2bja")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 645.0
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 120.0
+offset_right = 977.0
+offset_bottom = 276.0
+text = "Bem-vindo à noite dos mortos"
+label_settings = SubResource("LabelSettings_gp605")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 390.0
+offset_right = 780.0
+offset_bottom = 510.0
+text = "Pressione qualquer botão"
+label_settings = SubResource("LabelSettings_okx2f")
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
