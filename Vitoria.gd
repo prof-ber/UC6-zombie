@@ -1,7 +1,6 @@
 extends Control
 
 var block = true
-var timer
  
 func _ready():
 	pass
@@ -15,3 +14,7 @@ func _input(event):
 
 func _on_timer_timeout():
 	block = false
+
+func _on_morte_boss():
+	self.visible = true
+	$Timer.start()
