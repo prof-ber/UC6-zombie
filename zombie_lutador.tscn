@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://bo77a03ype56a"]
+
+[ext_resource type="Script" path="res://Zombie.gd" id="1_ygmm0"]
+[ext_resource type="Texture2D" uid="uid://crniyihgrj72e" path="res://sprite/zumbi1, walk1, boxeador.png" id="2_jlfsf"]
+[ext_resource type="Texture2D" uid="uid://bg08wjg1ytudj" path="res://sprite/zumbi1, walk3, boxeador.png" id="3_34c2w"]
+[ext_resource type="AudioStream" uid="uid://l34hmhub1gdm" path="res://sound/audacity/sound.zombie/555420__tonsil5__zombie-hit-1.wav" id="3_534ub"]
+[ext_resource type="Texture2D" uid="uid://byt2x8mlsha15" path="res://sprite/zumbi1, walk2, boxeador.png" id="4_b55b2"]
+[ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="4_wiaix"]
+[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/files/555423__tonsil5__zombie-pain-2.wav" id="5_2q1q2"]
+[ext_resource type="Texture2D" uid="uid://b6ycixnrxswam" path="res://sprite/zumbi1, soco 1, boxeador.png" id="5_uewj3"]
+[ext_resource type="Texture2D" uid="uid://bxulnt5mgu42y" path="res://sprite/zumbi1, soco2, boxeador.png" id="6_fx5y0"]
+[ext_resource type="Texture2D" uid="uid://b238vbk6ddvvi" path="res://sprite/Zumbi1, explosão3.png" id="7_ul2wb"]
+[ext_resource type="Texture2D" uid="uid://cbm4624u707a1" path="res://sprite/Zumbi1, explosão2.png" id="8_2sqtk"]
+[ext_resource type="Texture2D" uid="uid://btyvrfgexvi37" path="res://sprite/Zumbi1, explosão1.png" id="9_e3li5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ps5l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jlfsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_34c2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b55b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_34c2w")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uewj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fx5y0")
+}],
+"loop": false,
+"name": &"atacando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ul2wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2sqtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e3li5")
+}],
+"loop": false,
+"name": &"morrer",
+"speed": 50.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
+radius = 16.0
+height = 40.0
+
+[node name="Zumbi Lutador" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+collision_layer = 7
+script = ExtResource("1_ygmm0")
+vida = 500
+forca = 40
+alcance_ataque = 65.0
+speed = 240
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.66667, -4)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4ps5l")
+animation = &"andando"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_go3xp")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="SomMordida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_534ub")
+
+[node name="SomDano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wiaix")
+volume_db = 3.923
+pitch_scale = 1.04
+
+[node name="SomMorte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2q1q2")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

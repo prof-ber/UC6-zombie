@@ -1,12 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dohldf58c5y4e"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dohldf58c5y4e"]
 
 [ext_resource type="Texture2D" uid="uid://bxt77d5y2ebrg" path="res://sprite/zumbi1, walk1.png" id="1_p4cr5"]
 [ext_resource type="Texture2D" uid="uid://cypkj36h6abvs" path="res://sprite/zumbi1, walk3.png" id="2_362bl"]
 [ext_resource type="Texture2D" uid="uid://dxcby265a2k8q" path="res://sprite/zumbi1, walk2.png" id="3_tg1vn"]
-[ext_resource type="Texture2D" uid="uid://d0o5vryuchcmq" path="res://sprite/zumbi1, soco 1.png" id="4_kw4nq"]
-[ext_resource type="Texture2D" uid="uid://bm1yoxwkdi5db" path="res://sprite/zumbi1, soco2.png" id="5_7aqlc"]
-[ext_resource type="Texture2D" uid="uid://dk0rqkj24amsl" path="res://sprite/zumbi1, morto1.png" id="6_vfkfv"]
-[ext_resource type="Texture2D" uid="uid://bvirfeimdw3qw" path="res://sprite/zumbi1, morto2.png" id="7_kii40"]
+[ext_resource type="Texture2D" uid="uid://c63yo2oj8tqyt" path="res://sprite/zumbi1, vomito1.png" id="4_wsxs3"]
+[ext_resource type="Texture2D" uid="uid://ddtyrit5mjgfo" path="res://sprite/zumbi1, vomito2.png" id="5_70i7l"]
+[ext_resource type="Texture2D" uid="uid://bg7emc62ho3f1" path="res://sprite/zumbi1, vomito3.png" id="6_jl5xv"]
+[ext_resource type="Texture2D" uid="uid://b238vbk6ddvvi" path="res://sprite/Zumbi1, explosão3.png" id="7_sf5s8"]
+[ext_resource type="Texture2D" uid="uid://cbm4624u707a1" path="res://sprite/Zumbi1, explosão2.png" id="8_x4p5j"]
+[ext_resource type="Texture2D" uid="uid://btyvrfgexvi37" path="res://sprite/Zumbi1, explosão1.png" id="9_e80k8"]
 
 [resource]
 animations = [{
@@ -29,21 +31,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_kw4nq")
+"texture": ExtResource("4_wsxs3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_7aqlc")
+"texture": ExtResource("5_70i7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jl5xv")
 }],
-"loop": false,
+"loop": true,
 "name": &"atacando",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_vfkfv")
+"texture": ExtResource("7_sf5s8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_kii40")
+"texture": ExtResource("8_x4p5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e80k8")
 }],
 "loop": false,
 "name": &"morrer",

@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dohldf58c5y4e" path="res://zombie.tres" id="2_qrwin"]
 [ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="3_8hv1r"]
 [ext_resource type="AudioStream" uid="uid://l34hmhub1gdm" path="res://sound/audacity/sound.zombie/555420__tonsil5__zombie-hit-1.wav" id="3_j1uhc"]
-[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/audacity/sound.zombie/555423__tonsil5__zombie-pain-2.wav" id="4_cev5g"]
+[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/files/555423__tonsil5__zombie-pain-2.wav" id="4_cev5g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
 radius = 16.0
@@ -20,7 +20,7 @@ script = ExtResource("1_woxbj")
 position = Vector2(-2.66667, -4)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_qrwin")
-animation = &"atacando"
+animation = &"morrer"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

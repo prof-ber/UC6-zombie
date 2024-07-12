@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var alcance_ataque = 55.0
 
 var motion = Vector2()
-var speed = 256
+@export var speed = 256
 var mordida_ready = true
 var morto = false
 
