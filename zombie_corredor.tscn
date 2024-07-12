@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw844y05qwh7o"]
+
+[ext_resource type="Script" path="res://Zombie.gd" id="1_ec0tq"]
+[ext_resource type="SpriteFrames" uid="uid://dohldf58c5y4e" path="res://zombie.tres" id="2_035oq"]
+[ext_resource type="AudioStream" uid="uid://l34hmhub1gdm" path="res://sound/audacity/sound.zombie/555420__tonsil5__zombie-hit-1.wav" id="3_vhoq0"]
+[ext_resource type="AudioStream" uid="uid://c63o8p6v32rin" path="res://sound/files/555422__tonsil5__zombie-pain-3.wav" id="4_23mqh"]
+[ext_resource type="AudioStream" uid="uid://cg4jkgaaxetun" path="res://sound/files/555423__tonsil5__zombie-pain-2.wav" id="5_wfl51"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_go3xp"]
+radius = 16.0
+height = 40.0
+
+[node name="Zombie_corredor" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+collision_layer = 7
+script = ExtResource("1_ec0tq")
+vida = 150
+forca = 5
+speed = 500
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.66667, -4)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_035oq")
+animation = &"andando"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_go3xp")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="SomMordida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vhoq0")
+
+[node name="SomDano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_23mqh")
+volume_db = 3.923
+pitch_scale = 1.04
+
+[node name="SomMorte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wfl51")
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
