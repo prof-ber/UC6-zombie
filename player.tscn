@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bfml5vqrh4lcu" path="res://sprite/barra-de-vida-2.png" id="6_hp081"]
 [ext_resource type="Texture2D" uid="uid://q5d1c7vce7ao" path="res://sprite/barra-de-vida-3.png" id="7_1sml5"]
 [ext_resource type="Texture2D" uid="uid://bxrolrgxacpeg" path="res://sprite/barra-de-stamina.png" id="8_2hike"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="8_8w35v"]
 [ext_resource type="Texture2D" uid="uid://cinbvt5gw7s0t" path="res://sprite/mochila.png" id="11_q3ys8"]
 [ext_resource type="FontFile" uid="uid://caqi68vof71g4" path="res://font/BlackOpsOne-Regular.ttf" id="14_1go71"]
 [ext_resource type="PackedScene" uid="uid://b41ku7dwb5esm" path="res://game_over.tscn" id="14_lb84c"]
@@ -75,6 +76,11 @@ autoplay = "parado"
 shape = SubResource("RectangleShape2D_dbugi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("8_8w35v")
+
+[node name="CameraTimer" type="Timer" parent="Camera2D"]
+wait_time = 0.5
+one_shot = true
 
 [node name="SomDano" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_unkii")

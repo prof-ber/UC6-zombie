@@ -32,6 +32,11 @@ func _process(delta):
 			stamina -= 1
 			$UI/StaminaBar.value = self.stamina
 		if (Input.is_action_pressed("Shoot")):
+			if $Camera2D/CameraTimer.is_stopped():
+				$Camera2D.randomStrength = 2.5
+				$Camera2D.shaking = true
+				$Camera2D/CameraTimer.wait_time = 0.25
+				$Camera2D/CameraTimer.start()
 			self.get_child(1).fire()
 		self.velocity = motion * speed
 		if !motion:
@@ -49,6 +54,11 @@ func _process(delta):
 
 func tomar_dano(quantidade):
 	if not morto:
+		if $Camera2D/CameraTimer.is_stopped():
+			$Camera2D.randomStrength = 30.0
+			$Camera2D.shaking = true
+			$Camera2D/CameraTimer.wait_time = 0.5
+			$Camera2D/CameraTimer.start()
 		$SomDano.play()
 		self.vida -= quantidade
 		$UI/LifeBar.value = self.vida
