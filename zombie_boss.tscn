@@ -11,10 +11,13 @@ radius = 49.3333
 height = 165.333
 
 [node name="ZombieBoss" type="CharacterBody2D"]
-z_index = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
 script = ExtResource("1_r74da")
+vida = 1
+forca = 50
+alcance_ataque = 110.0
+value = 10000
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.313726, 0.168627, 1)

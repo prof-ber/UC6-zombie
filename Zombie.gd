@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var vida = 100
 @export var forca = 10
 @export var alcance_ataque = 55.0
+@export var value = 100
 
 var motion = Vector2()
 @export var speed = 256
@@ -68,3 +69,4 @@ func morrer():
 	self.remove_child($CollisionShape2D)
 	$Sprite2D.z_index -= 1
 	##Explodir o zumbi
+	Preloader.score += self.value

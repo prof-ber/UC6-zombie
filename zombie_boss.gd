@@ -4,6 +4,7 @@ func _ready():
 	pass
 
 func morrer():
+	Preloader.score += self.value
 	$Sprite2D.play("morrer")
 	##Flag morto para verdadeiro
 	self.morto = true

@@ -14,6 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$UI/Label.text = str(Preloader.score)
 	if not morto and not vitoria:
 		motion = Vector2(0,0)
 		speed = 256
