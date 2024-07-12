@@ -14,8 +14,10 @@ func _process(delta):
 
 func fire():
 	if pode_atirar:
+		$Flash.visible = true
+		$Flash/FlashTimer.start()
 		var new_bullet = Preloader.bullet.instantiate()
-		new_bullet.global_position = self.global_position
+		new_bullet.global_position = $Muzzle.global_position
 		new_bullet.rotation_degrees = self.rotation_degrees
 		new_bullet.rotation_degrees = self.rotation_degrees + rng.randf_range(-imprecisao, imprecisao)
 		get_tree().get_root().add_child(new_bullet)
@@ -25,3 +27,6 @@ func fire():
 
 func _on_ready_timeout():
 	pode_atirar = true
+
+func _on_flash_timer_timeout():
+	$Flash.visible = false

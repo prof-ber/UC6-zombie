@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 @export var vida = 100
+@export var stamina = 100
 var motion = Vector2()
 var speed = 256
 var morto = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$UI/LifeBar.value = self.vida
+	$UI/StaminaBar.value = self.stamina
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,19 +25,38 @@ func _process(delta):
 			motion.x = -1
 		elif (Input.is_action_pressed("Right")):
 			motion.x = 1
-		if (Input.is_action_pressed("Run")):
-			speed *= 2
+		if (Input.is_action_pressed("Run") and stamina > 0):
+			speed *= 1.5
+			stamina -= 1
+			$UI/StaminaBar.value = self.stamina
 		if (Input.is_action_pressed("Shoot")):
 			self.get_child(1).fire()
 		self.velocity = motion * speed
+		if !motion:
+			stamina += 0.1
+			$UI/StaminaBar.value = self.stamina
+		if motion.x < 0:
+			$Sprite2D.flip_h = true
+		elif motion.x > 0:
+			$Sprite2D.flip_h = false
+		if velocity:
+			$Sprite2D.play("correndo")
+		else:
+			$Sprite2D.play("parado")
 		move_and_slide()
 
 func tomar_dano(quantidade):
-	$SomDano.play()
-	self.vida -= quantidade
-	if self.vida < 1:
-		self.morrer()
+	if not morto:
+		$SomDano.play()
+		self.vida -= quantidade
+		$UI/LifeBar.value = self.vida
+		if self.vida < 1:
+			self.morrer()
 
 func morrer():
 	self.morto = true
 	$SomMorte.play()
+	$Sprite2D.play("morrer")
+	$Sprite2D.scale = Vector2(0.75,0.75)
+	get_child(1).visible = false
+	$Mochila.visible = true

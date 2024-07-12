@@ -1,13 +1,4 @@
-extends CharacterBody2D
-
-@export var vida = 100
-@export var forca = 10
-@export var alcance_ataque = 55.0
-
-var motion = Vector2()
-var speed = 256
-var mordida_ready = true
-var morto = false
+extends "res://Zombie.gd"
 
 func _ready():
 	pass
@@ -35,18 +26,17 @@ func _process(delta):
 				$Sprite2D.flip_h = false
 			move_and_slide()
 		elif target and mordida_ready:
-			self.bite(target)
+			self.explode()
 
-func bite(target):
-	##Executar uma animação de mordida
-	$Sprite2D.play("atacando")
-	##Tocar um som
-	$SomMordida.play()
-	##Fazer o jogador tomar dano
-	target.tomar_dano(self.forca)
-	##Fazer a mordida entrar em cooldown
-	mordida_ready = false
-	$Timer.start()
+func explode():
+	##Criar o nó explosão
+	var new_boom = Preloader.boom.instantiate()
+	##Posicionar o nó
+	new_boom.global_position = self.global_position
+	##Adicionar à posição do zumbi
+	get_tree().get_root().add_child(new_boom)
+	##Eliminar o zumbi da cena
+	self.queue_free()
 
 func _on_timer_timeout():
 	mordida_ready = true
@@ -55,16 +45,6 @@ func tomar_dano(quantidade):
 	if not morto:
 		self.vida -= quantidade
 		if self.vida < 1:
-			self.morrer()
+			self.explode()
 		else:
 			$SomDano.play()
-
-func morrer():
-	$Sprite2D.play("morrer")
-	##Flag morto para verdadeiro
-	self.morto = true
-	$SomMorte.play()
-	##Tirar a colisão
-	self.remove_child($CollisionShape2D)
-	$Sprite2D.z_index -= 1
-	##Explodir o zumbi
