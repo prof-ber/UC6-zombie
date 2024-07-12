@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djotalutxrsap"]
+[gd_scene load_steps=6 format=3 uid="uid://djotalutxrsap"]
 
 [ext_resource type="PackedScene" uid="uid://da3o120jlieqs" path="res://gun.tscn" id="1_edcic"]
 [ext_resource type="Texture2D" uid="uid://jm7hirqsjtrr" path="res://sprite/Captura de tela 2024-06-21 144205.png" id="2_28ppd"]
 [ext_resource type="Script" path="res://SMG.gd" id="3_ls782"]
 [ext_resource type="AudioStream" uid="uid://cwcyfbep4gx0a" path="res://sound/files/212608__pgi__machine-gun-002-loop.wav" id="4_es04i"]
+[ext_resource type="Texture2D" uid="uid://clrlo207f8tiv" path="res://sprite/faisca.png" id="5_ag8tj"]
 
 [node name="Fuzil" instance=ExtResource("1_edcic")]
 texture = ExtResource("2_28ppd")
@@ -17,3 +18,18 @@ wait_time = 0.15
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource("4_es04i")
 pitch_scale = 1.25
+
+[node name="Flash" type="Sprite2D" parent="." index="2"]
+visible = false
+position = Vector2(124.276, 7.03448)
+texture = ExtResource("5_ag8tj")
+
+[node name="FlashTimer" type="Timer" parent="Flash" index="0"]
+process_callback = 0
+wait_time = 0.01
+one_shot = true
+
+[node name="Muzzle" type="Node2D" parent="." index="3"]
+position = Vector2(79.7241, 4.68965)
+
+[connection signal="timeout" from="Flash/FlashTimer" to="." method="_on_flash_timer_timeout"]

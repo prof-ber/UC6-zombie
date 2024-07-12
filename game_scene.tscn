@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckccvfggo61kp"]
+[gd_scene load_steps=8 format=3 uid="uid://ckccvfggo61kp"]
 
 [ext_resource type="Texture2D" uid="uid://4t2at2r71cky" path="res://sprite/Fundo.png" id="1_2lf64"]
 [ext_resource type="Script" path="res://SpawnZombie.gd" id="1_72iaw"]
@@ -140,47 +140,23 @@ layer_0/tile_data = PackedInt32Array(-196608, 5898242, 36, 17, 4456450, 64, 6555
 
 [node name="Player" parent="." instance=ExtResource("1_jtqty")]
 
+[node name="ZombieBomba" parent="." instance=ExtResource("6_x7b8a")]
+position = Vector2(565, 304)
+
 [node name="Zombie" parent="." instance=ExtResource("4_rd5dw")]
-position = Vector2(897, 287)
-vida = 20
+position = Vector2(681, 306)
 
-[node name="SpawnZombieR1" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(2, 286)
+[node name="Zombie2" parent="." instance=ExtResource("4_rd5dw")]
+position = Vector2(601, 324)
 
-[node name="SpawnZombieR2" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(529, 186)
-ActiveRound = 2
+[node name="Zombie3" parent="." instance=ExtResource("4_rd5dw")]
+position = Vector2(641, 298)
 
-[node name="SpawnZombieR3" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-927, -112)
-ActiveRound = 3
+[node name="Zombie4" parent="." instance=ExtResource("4_rd5dw")]
+position = Vector2(642, 338)
 
-[node name="SpawnZombieR4" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(1269, 848)
-ActiveRound = 4
+[node name="Zombie5" parent="." instance=ExtResource("4_rd5dw")]
+position = Vector2(656, 262)
 
-[node name="SpawnZombieR5" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-1761, 926)
-ActiveRound = 5
-
-[node name="SpawnZombieR6" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-115, 1350)
-ActiveRound = 6
-
-[node name="SpawnZombieR7" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-2368, -110)
-ActiveRound = 7
-
-[node name="SpawnZombieR8" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-4424, 1433)
-ActiveRound = 8
-
-[node name="SpawnZombieR9" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(-1567, 2186)
-ActiveRound = 9
-
-[node name="SpawnZombieR10" parent="." instance=ExtResource("6_8umcu")]
-position = Vector2(1562, 2421)
-ActiveRound = 10
-
-[node name="SpawnBoss" parent="." instance=ExtResource("8_8ba4s")]
+[node name="Zombie6" parent="." instance=ExtResource("4_rd5dw")]
+position = Vector2(609, 259)
