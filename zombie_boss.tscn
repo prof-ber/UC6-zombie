@@ -15,6 +15,7 @@ z_index = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 7
 script = ExtResource("1_r74da")
+alcance_ataque = 110.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.313726, 0.168627, 1)
