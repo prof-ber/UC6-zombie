@@ -60,3 +60,5 @@ func morrer():
 	$Sprite2D.scale = Vector2(0.75,0.75)
 	get_child(1).visible = false
 	$Mochila.visible = true
+	$GameOver.visible = true
+	$GameOver/Timer.start()
