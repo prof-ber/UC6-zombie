@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2o6p3vlibqre"]
+[gd_scene load_steps=17 format=3 uid="uid://c2o6p3vlibqre"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rgjoe"]
 [ext_resource type="Texture2D" uid="uid://xkajmb0glb2r" path="res://sprite/avatar1, walk 1.png" id="2_1jdif"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bxrolrgxacpeg" path="res://sprite/barra-de-stamina.png" id="8_2hike"]
 [ext_resource type="Texture2D" uid="uid://cinbvt5gw7s0t" path="res://sprite/mochila.png" id="11_q3ys8"]
 [ext_resource type="PackedScene" uid="uid://b41ku7dwb5esm" path="res://game_over.tscn" id="14_lb84c"]
-[ext_resource type="PackedScene" uid="uid://b7m2qwtqb7nse" path="res://vitoria.tscn" id="15_64bab"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cuprc"]
 animations = [{
@@ -111,5 +110,3 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("11_q3ys8")
 
 [node name="GameOver" parent="." instance=ExtResource("14_lb84c")]
-
-[node name="Vitoria" parent="." instance=ExtResource("15_64bab")]

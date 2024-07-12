@@ -1,7 +1,5 @@
 extends "res://Zombie.gd"
 
-signal morte_boss
-
 func _ready():
 	pass
 
@@ -15,4 +13,7 @@ func morrer():
 	$Sprite2D.z_index -= 1
 	##Explodir o zumbi
 	##Fazer a vitória acontecer
-	morte_boss.emit()
+	var player = get_tree().root.get_node("GameScene/Player")
+	if player:
+		player.vitoria = true
+		player.add_child(Preloader.vitoria.instantiate())
