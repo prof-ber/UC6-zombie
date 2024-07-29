@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckccvfggo61kp"]
+[gd_scene load_steps=8 format=3 uid="uid://ckccvfggo61kp"]
 
 [ext_resource type="Texture2D" uid="uid://4t2at2r71cky" path="res://sprite/Fundo.png" id="1_2lf64"]
 [ext_resource type="Script" path="res://SpawnZombie.gd" id="1_72iaw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2o6p3vlibqre" path="res://player.tscn" id="1_jtqty"]
 [ext_resource type="PackedScene" uid="uid://bm5bn28nfv7ep" path="res://rounds.tscn" id="2_irjjy"]
 [ext_resource type="PackedScene" uid="uid://sa2b4ctdkf8e" path="res://zombie_boss.tscn" id="6_06u3j"]
+[ext_resource type="PackedScene" uid="uid://ohmbv2jd7v6i" path="res://zombie.tscn" id="7_s226x"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_72iaw")
@@ -140,3 +141,12 @@ layer_0/tile_data = PackedInt32Array(-196608, 5898242, 36, 17, 4456450, 64, 6555
 
 [node name="ZombieBoss" parent="." instance=ExtResource("6_06u3j")]
 position = Vector2(678, 422)
+
+[node name="Zombie" parent="." instance=ExtResource("7_s226x")]
+position = Vector2(95, 481)
+
+[node name="Zombie2" parent="." instance=ExtResource("7_s226x")]
+position = Vector2(-52, 441)
+
+[node name="Zombie3" parent="." instance=ExtResource("7_s226x")]
+position = Vector2(-35, 520)

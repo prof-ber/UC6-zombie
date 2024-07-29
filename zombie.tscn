@@ -20,7 +20,7 @@ script = ExtResource("1_woxbj")
 position = Vector2(-2.66667, -4)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_qrwin")
-animation = &"morrer"
+animation = &"atacando"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
